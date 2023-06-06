@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-def islower(c):
-    """Check for lowercase characters."""
-    if ord(c) >= 97 and ord(c) <= 122:
-        return True
-    else:
-        return False
+# 2-print_alphabet.py
+for i in range(97, 123):
+    print(chr(i), end="")
