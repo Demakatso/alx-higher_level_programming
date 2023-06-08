@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-if __name__ == "__main__":
-import sys
-for arg in arguments:
-    result += int(arg)
-
-print(result)
+if __name__ == '__main__':
+    args = sys.argv[1:]
+    result = sum(int(arg) for arg in args)
+    print(result)
