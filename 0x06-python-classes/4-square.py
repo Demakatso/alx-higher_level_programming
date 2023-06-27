@@ -1,14 +1,49 @@
 #!/usr/bin/python3
-Square = __import__('4-square').Square
+'''
+This is a module that provides a class definition for a square.
+'''
 
-my_square = Square(89)
-print("Area: {} for size: {}".format(my_square.area(), my_square.size))
 
-my_square.size = 3
-print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+class Square:
+    ''' The class defines a square. '''
+    def __init__(self, size=0):
+        '''
+        The __init__ method creates a private attribute \
+        called size and is instantiated to a variable called size.
 
-try:
-    my_square.size = "5 feet"
-    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
-except Exception as e:
-    print(e)
+        Args:
+            size (int): a critical parameter of a square
+        '''
+        self.size = size
+
+    def area(self):
+        '''
+        The area method is a public instance method that computes the area of a
+        square and returns the result.
+
+        Note:
+            Reference made to the private instance attribute size for function
+            argument.
+        '''
+        return self.__size * self.__size
+
+    @property
+    def size(self):
+        return self.__size
+
+    @size.setter
+    def size(self, value):
+        '''
+        The setter method is a private instance method that ensures the size of
+        the square is set to the value size and cannot be changed.
+
+        Note:
+            Reference made to the private instance attribute size for function
+            argument.
+        '''
+        if type(value) is not int:
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
